@@ -5,7 +5,7 @@ import FeaturedGallery from "../../../components/structure/featuredGallery";
 
 const Hero: FC = () => {
   return (
-    <section className="md:flex mt-40 mx-auto max-w-max">
+    <section className="md:flex mt-40 mx-auto max-w-max px-6">
       <div className="max-w-md md:max-w-sm lg:max-w-lg flex flex-col md:space-y-2 items-start mx-auto md:mx-0 shrink-0">
         <span>
           <p className="bg-chinook pr-8 font-darker-grotesque text-lg max-w-max italic">

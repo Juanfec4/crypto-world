@@ -8,7 +8,7 @@ import FeatureCard from "../../cards/featureCard";
 
 const Features: FC = () => {
   return (
-    <section className=" mt-24 md:mt-48">
+    <section className=" mt-24 md:mt-48 mx-6">
       <h2 className=" ml-6 font-darker-grotesque  text-5xl md:text-[7rem] text-center">
         What we offer
       </h2>

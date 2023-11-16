@@ -1,5 +1,8 @@
 import ReactDOM from "react-dom/client";
 import "./styles/tailwind.css";
-import HomePage from "./router/pages/home";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/router";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<HomePage />);
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <RouterProvider router={router} />
+);

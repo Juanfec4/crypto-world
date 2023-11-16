@@ -5,11 +5,11 @@ import CallToAction from "../../../components/structure/callToAction";
 
 const HomePage: FC = () => {
   return (
-    <main>
+    <>
       <Hero />
       <Features />
       <CallToAction />
-    </main>
+    </>
   );
 };
 export default HomePage;
