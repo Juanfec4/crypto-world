@@ -170,7 +170,10 @@ const CoinTable: FC<CoinTableProps> = ({
             return coin.name
               .toUpperCase()
               .startsWith(searchTerm.toUpperCase()) ? (
-              <tr className="border-b border-black last:border-transparent cursor-pointer hover:bg-floral-white">
+              <tr
+                key={coin.id}
+                className="border-b border-black last:border-transparent cursor-pointer hover:bg-floral-white"
+              >
                 <td className="flex items-bottom space-x-2 p-6 justify-start items-center">
                   <img src={coin.image} className="h-8 w-8 aspect-square" />
                   <h2 className=" text-lg lg:text-2xl font-bold truncate">

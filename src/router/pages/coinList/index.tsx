@@ -14,13 +14,13 @@ const CoinListPage: FC = () => {
   const [maxPage, setMaxPage] = useState(5);
 
   const handleNextPage = () => {
-    if (page + 1 <= maxPage) {
+    if (page < maxPage) {
       setPage(page + 1);
     }
   };
 
   const handlePrevPage = () => {
-    if (page - 1 > 0) {
+    if (page > 1) {
       setPage(page - 1);
     }
   };
@@ -129,7 +129,7 @@ const CoinListPage: FC = () => {
       vs_currency: "usd",
       locale: "en",
       page: page,
-      per_page: 25,
+      per_page: 10,
     })
       .then((result) => {
         setCoins(result.data);
