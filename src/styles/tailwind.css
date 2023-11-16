@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-fantasy scroll-smooth;
+}
+
+body {
+  @apply m-0;
+}
