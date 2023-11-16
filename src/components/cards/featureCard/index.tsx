@@ -11,7 +11,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
   cardIcon,
 }) => {
   return (
-    <div className="w-96 h-64 md:h-96 lg:h-80 border-2 p-4 rounded-sm relative bg-floral-white">
+    <div className="w-96 h-64 md:h-96 lg:h-80 border-2 p-4 rounded-sm relative bg-floral-white border-black">
       <span className="text-2xl lg:text-2xl font-darker-grotesque font-semibold text-center border-dashed border-b-2 pb-2 border-b-shuttle-gray flex flex-col items-center group group-hover">
         {cardIcon}
         <h3>{cardTitle}</h3>

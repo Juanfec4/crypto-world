@@ -16,7 +16,7 @@ const CoinCard: FC<CoinCardProps> = ({
   const isNegativeChange: boolean = coinPriceChange < 0;
 
   return (
-    <div className="flex flex-col space-y-2 p-6 w-48 h-64 border rounded-md items-center md:hover:scale-105 cursor-pointer bg-floral-white  flex-shrink-0">
+    <div className="flex flex-col space-y-2 p-6 w-48 h-64 border rounded-md items-center md:hover:scale-105 cursor-pointer bg-floral-white  flex-shrink-0 border-black">
       <img src={coinImg} alt={coinName} className="w-16 h-16 m-2" />
       <span className="flex flex-col space-y-2 items-center">
         <h4 className=" font-darker-grotesque font-bold text-center text-xl md:text-2xl">
