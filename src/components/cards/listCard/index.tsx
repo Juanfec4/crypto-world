@@ -1,15 +1,15 @@
 import { IconStar } from "@tabler/icons-react";
 import { FC } from "react";
 import { CoinData } from "../../../types/global";
+import PercentTag from "../../data-display/percentTag";
 
 interface ListCardProps {
   coin: CoinData;
 }
 
 const ListCard: FC<ListCardProps> = ({ coin }) => {
-  const isNegativeChange: boolean = coin.price_change_percentage_24h > 0;
   return (
-    <li className=" bg-floral-white h-36 border-b-[1px] border-shuttle-gray flex items-center relative">
+    <li className=" bg-white h-36 border-b-[1px] border-shuttle-gray flex items-center relative last:border-transparent">
       <IconStar className="h-6 w-6 my-auto absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer" />
       <div className="w-full p-4 flex gap-4 items-center">
         <img src={coin.image} className="h-12 w-12 mx-4 hidden sm:block" />
@@ -18,15 +18,9 @@ const ListCard: FC<ListCardProps> = ({ coin }) => {
             <h4 className=" font-darker-grotesque font-light text-3xl">
               {coin.symbol.toUpperCase()}
             </h4>
-            {isNegativeChange ? (
-              <p className="font-darker-grotesque bg-chinook text-lg font-semibold px-2">
-                +{coin.price_change_percentage_24h.toFixed(2)}%
-              </p>
-            ) : (
-              <p className="font-darker-grotesque bg-sea-pink text-lg font-semibold px-2">
-                {coin.price_change_percentage_24h.toFixed(2)}%
-              </p>
-            )}
+            <PercentTag
+              coinPriceChange={coin.price_change_percentage_24h_in_currency}
+            />
           </span>
           <h5 className="font-darker-grotesque text-3xl font-bold">
             $30,170.22

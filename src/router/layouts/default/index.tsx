@@ -8,7 +8,6 @@ const DefaultLayout: FC = () => {
       <Navbar
         NavbarLinks={[
           { text: "Home", target: "/" },
-          { text: "Dashboard", target: "/dashboard" },
           { text: "Coin list", target: "/coins" },
           { text: "Watchlist", target: "/watch-list" },
         ]}

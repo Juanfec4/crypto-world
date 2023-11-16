@@ -26,4 +26,6 @@ export interface CoinData {
   roi: null; // Change this to the actual type if needed
   total_supply: number;
   total_volume: number;
+  price_change_percentage_1h_in_currency: number;
+  price_change_percentage_7d_in_currency: number;
 }

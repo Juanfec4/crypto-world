@@ -5,13 +5,16 @@ import Loader from "../../ui-elements/loader";
 
 interface CoinListProps {
   coins?: CoinData[];
+  searchTerm: string;
 }
 
-const CoinList: FC<CoinListProps> = ({ coins }) => {
+const CoinList: FC<CoinListProps> = ({ coins, searchTerm }) => {
   return coins ? (
     <ul className="m-6 border-2 border-black group rounded-md overflow-hidden md:hidden">
       {coins.map((coin) => {
-        return <ListCard key={coin.id} coin={coin} />;
+        return coin.name.toUpperCase().startsWith(searchTerm.toUpperCase()) ? (
+          <ListCard key={coin.id} coin={coin} />
+        ) : null;
       })}
     </ul>
   ) : (
