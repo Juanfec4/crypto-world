@@ -52,7 +52,7 @@ const NavMenu: FC<NavMenuProps> = ({ NavLinks }) => {
             {NavLinks
               ? NavLinks.map((link, index: number) => {
                   return (
-                    <li key={index}>
+                    <li key={index} onClick={() => setToggleMenu(false)}>
                       <NavLink
                         to={link.target}
                         className={({ isActive }) =>
