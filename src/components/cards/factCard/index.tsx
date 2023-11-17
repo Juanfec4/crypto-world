@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { CoinInformation } from "../../../types/global";
 import PercentTag from "../../data-display/percentTag";
 
