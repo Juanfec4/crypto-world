@@ -2,14 +2,24 @@ import { IconStar } from "@tabler/icons-react";
 import { FC } from "react";
 import { CoinData } from "../../../types/global";
 import PercentTag from "../../data-display/percentTag";
+import { useNavigate } from "react-router-dom";
 
 interface ListCardProps {
   coin: CoinData;
 }
 
 const ListCard: FC<ListCardProps> = ({ coin }) => {
+  const navigator = useNavigate();
+
+  const handleNavigate = () => {
+    navigator(`/coins/${coin.id}`);
+  };
+
   return (
-    <li className=" bg-white h-36 border-b-[1px] border-shuttle-gray flex items-center relative last:border-transparent">
+    <li
+      className=" bg-white h-36 border-b-[1px] border-shuttle-gray flex items-center relative last:border-transparent cursor-pointer"
+      onClick={handleNavigate}
+    >
       <IconStar className="h-6 w-6 my-auto absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer" />
       <div className="w-full p-4 flex gap-4 items-center">
         <img src={coin.image} className="h-12 w-12 mx-4 hidden sm:block" />

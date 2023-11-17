@@ -33,6 +33,7 @@ const FeaturedGallery: FC = () => {
                     coinPrice={coin.current_price}
                     coinPriceChange={coin.price_change_percentage_24h}
                     coinImg={coin.image}
+                    coinId={coin.id}
                   />
                 );
               })
@@ -48,6 +49,7 @@ const FeaturedGallery: FC = () => {
                     coinPrice={coin.current_price}
                     coinPriceChange={coin.price_change_percentage_24h}
                     coinImg={coin.image}
+                    coinId={coin.id}
                   />
                 );
               })

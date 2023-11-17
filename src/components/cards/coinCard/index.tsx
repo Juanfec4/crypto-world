@@ -1,7 +1,9 @@
 import { FC } from "react";
 import PercentTag from "../../data-display/percentTag";
+import { useNavigate } from "react-router-dom";
 
 interface CoinCardProps {
+  coinId: string;
   coinImg: string;
   coinName: string;
   coinPriceChange: number;
@@ -9,13 +11,23 @@ interface CoinCardProps {
 }
 
 const CoinCard: FC<CoinCardProps> = ({
+  coinId,
   coinImg,
   coinName,
   coinPriceChange,
   coinPrice,
 }) => {
+  const navigator = useNavigate();
+
+  const handleNavigate = () => {
+    navigator(`/coins/${coinId}`);
+  };
+
   return (
-    <div className="flex flex-col space-y-2 p-6 w-48 h-64 border rounded-md items-center md:hover:scale-105 cursor-pointer bg-floral-white  flex-shrink-0 border-black">
+    <div
+      className="flex flex-col space-y-2 p-6 w-48 h-64 border rounded-md items-center md:hover:scale-105 cursor-pointer bg-floral-white  flex-shrink-0 border-black"
+      onClick={handleNavigate}
+    >
       <img src={coinImg} alt={coinName} className="w-16 h-16 m-2" />
       <span className="flex flex-col space-y-2 items-center">
         <h4 className=" font-darker-grotesque font-bold text-center text-xl md:text-2xl">

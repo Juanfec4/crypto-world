@@ -4,6 +4,7 @@ import { CoinData } from "../../../types/global";
 import Loader from "../../ui-elements/loader";
 import PercentTag from "../percentTag";
 import { IconArrowsDownUp } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 interface CoinTableProps {
   coins?: CoinData[];
@@ -30,6 +31,8 @@ const CoinTable: FC<CoinTableProps> = ({
   sortingBy,
   setSortBy,
 }) => {
+  const navigator = useNavigate();
+
   return coins ? (
     <div className="hidden md:block mx-auto bg-white border-2 border-black rounded-md max-w-min overflow-hidden">
       <table className="md:max-w-[1000px] lg:max-w-none lg:w-[1050px] align-middle table-auto text-center ">
@@ -173,6 +176,7 @@ const CoinTable: FC<CoinTableProps> = ({
               <tr
                 key={coin.id}
                 className="border-b border-black last:border-transparent cursor-pointer hover:bg-floral-white"
+                onClick={() => navigator(`/coins/${coin.id}`)}
               >
                 <td className="flex items-bottom space-x-2 p-6 justify-start items-center">
                   <img src={coin.image} className="h-8 w-8 aspect-square" />
