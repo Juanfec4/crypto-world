@@ -124,6 +124,7 @@ const CoinListPage: FC = () => {
   };
 
   useEffect(() => {
+    setMaxPage(5);
     fetchPageCoins({
       price_change_percentage: "1h,24h,7d",
       vs_currency: "usd",
