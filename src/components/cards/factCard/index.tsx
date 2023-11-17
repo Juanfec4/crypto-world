@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { CoinInformation } from "../../../types/global";
 import PercentTag from "../../data-display/percentTag";
 
@@ -6,14 +6,38 @@ import { IconTag } from "@tabler/icons-react";
 import { IconAnchor } from "@tabler/icons-react";
 import { IconBolt } from "@tabler/icons-react";
 import { IconRecycle } from "@tabler/icons-react";
+import { IconEyePlus } from "@tabler/icons-react";
+import { IconEyeMinus } from "@tabler/icons-react";
+import {
+  addToWatchList,
+  isOnWatchList,
+  removeFromWatchList,
+} from "../../../utils/helpers";
 
 interface FactCardProps {
   coin: CoinInformation;
 }
 
 const FactCard: FC<FactCardProps> = ({ coin }) => {
-  console.log(coin);
   const sanitizedHtml = { __html: coin.description.en };
+  const [isWatchlisted, setIsWatchlisted] = useState(false);
+
+  const handleAddToWatchlist = () => {
+    addToWatchList(coin.id);
+    setIsWatchlisted(true);
+  };
+
+  const handleRemoveFromWatchList = () => {
+    removeFromWatchList(coin.id);
+    setIsWatchlisted(false);
+  };
+
+  useEffect(() => {
+    if (coin.id) {
+      setIsWatchlisted(isOnWatchList(coin.id));
+    }
+  }, [coin.id]);
+
   return (
     <div className="p-6 flex flex-col gap-8 mx-auto max-w-7xl">
       <div className="flex flex-col gap-16">
@@ -69,13 +93,26 @@ const FactCard: FC<FactCardProps> = ({ coin }) => {
               Circulating / Total supply
             </p>
             <IconRecycle />
-            <h3 className=" text-m md:text-2xl font-light">
+            <h3 className=" text-md md:text-2xl font-light">
               {coin.market_data.circulating_supply.toLocaleString()}
             </h3>
             <h3 className="text-md md:text-2xl font-light">/</h3>
             <h3 className="text-md md:text-2xl font-light">
               {coin.market_data.total_supply.toLocaleString()}
             </h3>
+          </span>
+          <span
+            className="flex items-center gap-2 bg-purple-mimosa p-4 border-[1px] border-black relative justify-center md:justify-start hover:opacity-75 cursor-pointer transition duration-200"
+            onClick={
+              isWatchlisted ? handleRemoveFromWatchList : handleAddToWatchlist
+            }
+          >
+            {isWatchlisted ? (
+              <IconEyeMinus className="text-black" />
+            ) : (
+              <IconEyePlus className="text-black" />
+            )}
+            <h3 className=" text-md text-black font-semibold">watchlist</h3>
           </span>
         </div>
       </div>

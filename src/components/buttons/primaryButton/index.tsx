@@ -7,7 +7,7 @@ interface PrimaryButtonProps {
 
 const PrimaryButton: FC<PrimaryButtonProps> = ({ btnText, btnIcon }) => {
   return (
-    <button className=" bg-purple-mimosa px-8 py-4 border-2 rounded-sm hover:bg-purple-mimosa/75 transition duration-200 flex items-center justify-center space-x-2 border-black">
+    <button className=" bg-purple-mimosa px-8 py-4 border-[1px] rounded-sm hover:bg-purple-mimosa/75 transition duration-200 flex items-center justify-center space-x-2 border-black">
       {btnIcon}
       <span className=" font-fira text-sm md:text-base font-bold">
         {btnText}

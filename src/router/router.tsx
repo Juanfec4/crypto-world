@@ -3,6 +3,7 @@ import HomePage from "./pages/home";
 import DefaultLayout from "./layouts/default";
 import CoinListPage from "./pages/coinList";
 import CoinPage from "./pages/coin";
+import WatchlistPage from "./pages/watchList";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/coins", element: <CoinListPage /> },
       { path: "/coins/:id", element: <CoinPage /> },
+      { path: "/watch-list", element: <WatchlistPage /> },
     ],
   },
 ]);

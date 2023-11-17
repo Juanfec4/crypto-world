@@ -151,7 +151,9 @@ const CoinListPage: FC = () => {
           </>
         ) : null}
       </section>
-      <CoinList coins={coins} searchTerm={searchTerm} />
+      <span className="md:hidden">
+        <CoinList coins={coins} searchTerm={searchTerm} />
+      </span>
       <CoinTable
         coins={coins}
         sortCoinsByName={handleSortCoinsByName}

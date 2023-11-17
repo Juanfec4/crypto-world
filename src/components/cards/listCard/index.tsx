@@ -1,8 +1,9 @@
-import { IconStar } from "@tabler/icons-react";
+import { IconEye } from "@tabler/icons-react";
 import { FC } from "react";
 import { CoinData } from "../../../types/global";
 import PercentTag from "../../data-display/percentTag";
 import { useNavigate } from "react-router-dom";
+import { isOnWatchList } from "../../../utils/helpers";
 
 interface ListCardProps {
   coin: CoinData;
@@ -15,12 +16,16 @@ const ListCard: FC<ListCardProps> = ({ coin }) => {
     navigator(`/coins/${coin.id}`);
   };
 
+  const isWatchlisted = isOnWatchList(coin.id);
+
   return (
     <li
-      className=" bg-white h-36 border-b-[1px] border-shuttle-gray flex items-center relative last:border-transparent cursor-pointer"
+      className=" bg-white h-36 border-b-[1px] border-shuttle-gray flex items-center relative last:border-transparent cursor-pointer hover:bg-floral-white transition duration-200"
       onClick={handleNavigate}
     >
-      <IconStar className="h-6 w-6 my-auto absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer" />
+      {isWatchlisted ? (
+        <IconEye className="h-6 w-6 my-auto absolute top-1/2 right-4 -translate-y-1/2" />
+      ) : null}
       <div className="w-full p-4 flex gap-4 items-center">
         <img src={coin.image} className="h-12 w-12 mx-4 hidden sm:block" />
         <div className="flex flex-col my-auto">

@@ -5,6 +5,7 @@ import Loader from "../../ui-elements/loader";
 import PercentTag from "../percentTag";
 import { IconArrowsDownUp } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
+import { isOnWatchList } from "../../../utils/helpers";
 
 interface CoinTableProps {
   coins?: CoinData[];
@@ -170,12 +171,13 @@ const CoinTable: FC<CoinTableProps> = ({
         </thead>
         <tbody className=" font-darker-grotesque font-semibold">
           {coins.map((coin) => {
+            const isWatchlisted = isOnWatchList(coin.id);
             return coin.name
               .toUpperCase()
               .startsWith(searchTerm.toUpperCase()) ? (
               <tr
                 key={coin.id}
-                className="border-b border-black last:border-transparent cursor-pointer hover:bg-floral-white"
+                className="border-b border-black last:border-transparent cursor-pointer hover:bg-floral-white transition duration-200"
                 onClick={() => navigator(`/coins/${coin.id}`)}
               >
                 <td className="flex items-bottom space-x-2 p-6 justify-start items-center">
@@ -223,7 +225,9 @@ const CoinTable: FC<CoinTableProps> = ({
                   </p>
                 </td>
                 <td>
-                  <IconEye className="max-w-max mx-auto cursor-pointer" />
+                  {isWatchlisted ? (
+                    <IconEye className="max-w-max mx-auto cursor-pointer" />
+                  ) : null}
                 </td>
               </tr>
             ) : null;
