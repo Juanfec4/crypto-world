@@ -38,7 +38,10 @@ const ListCard: FC<ListCardProps> = ({ coin }) => {
             />
           </span>
           <h5 className="font-darker-grotesque text-3xl font-bold">
-            $30,170.22
+            $
+            {coin.current_price.toLocaleString(undefined, {
+              minimumFractionDigits: coin.current_price <= 0.005 ? 8 : 0,
+            })}
           </h5>
           <span className="font-darker-grotesque text-black  mt-2 max-w-max  p-2 text-lg flex gap-1 items-center">
             <h1>Market Cap. ${coin.market_cap.toLocaleString()}</h1>
