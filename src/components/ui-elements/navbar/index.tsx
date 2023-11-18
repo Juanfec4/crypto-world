@@ -15,7 +15,7 @@ const Navbar: FC<NavbarProps> = ({ NavbarLinks }) => {
         <img
           src={SiteLogo}
           alt=""
-          className="p-6 h-20 md:h-24 self-center"
+          className="p-6 h-20 md:h-24 self-center cursor-pointer"
           onClick={() => navigator("/")}
         />
         <NavMenu NavLinks={NavbarLinks} />
