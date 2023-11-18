@@ -2,8 +2,10 @@ import { FC } from "react";
 import PrimaryButton from "../../../components/buttons/primaryButton";
 import { IconChevronRight } from "@tabler/icons-react";
 import FeaturedGallery from "../../../components/structure/featuredGallery";
+import { useNavigate } from "react-router-dom";
 
 const Hero: FC = () => {
+  const navigator = useNavigate();
   return (
     <section className="md:flex mt-40 mx-auto max-w-max px-6">
       <div className="max-w-md md:max-w-sm lg:max-w-lg flex flex-col md:space-y-2 items-start mx-auto md:mx-0 shrink-0">
@@ -21,7 +23,11 @@ const Hero: FC = () => {
           comprehensive data, and powerful tools to optimize your investment
           strategy.
         </p>
-        <PrimaryButton btnText={"Get started"} btnIcon={<IconChevronRight />} />
+        <PrimaryButton
+          btnText={"Get started"}
+          btnIcon={<IconChevronRight />}
+          onClick={() => navigator("/coins")}
+        />
       </div>
       <div>
         <FeaturedGallery />
