@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./pages/home";
 import DefaultLayout from "./layouts/default";
-import CoinListPage from "./pages/coinList";
 import CoinPage from "./pages/coin";
+import CoinListPage from "./pages/coinList";
+import HomePage from "./pages/home";
+import NotFoundPage from "./pages/notFound";
 import WatchlistPage from "./pages/watchList";
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       { path: "/coins/:id", element: <CoinPage /> },
       { path: "/watch-list", element: <WatchlistPage /> },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 
